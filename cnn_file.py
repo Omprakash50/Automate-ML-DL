@@ -105,14 +105,11 @@ batch_size = 16
 
 history = model.fit_generator(train_generator,steps_per_epoch = nb_train_samples // batch_size,epochs = epochs,callbacks = callbacks,validation_data= validation_generator,validation_steps = nb_validation_samples // batch_size)
 
-final_accuracy=history.history["val_accuracy"][-1]
-print(final_accuracy)
+accuracy=history.history["val_accuracy"][-1]
 
 
-
-
-#import os
-#if final_accuracy < 0.92:
-#    os.system("curl --user '<jenkins username>:<jenkins_password>' http://192.168.99.102:8080/view/mlops/job/retrain/build?token=retrain")
-#else:
-#print("Your New accuracy=",final_accuracy)
+import os
+if final_accuracy < 0.92:
+    os.system("curl --user 'admin:Omkar@jio.com1' http://192.168.43.60:8080/job/execution/build?token=run")
+else:
+    print("Finally accuracy reached :=",accuracy)
