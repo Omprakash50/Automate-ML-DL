@@ -110,6 +110,6 @@ accuracy=history.history["val_accuracy"][-1]
 
 import os
 if final_accuracy < 0.92:
-    os.system("curl --user 'admin:Omkar@jio.com1' http://192.168.43.60:8080/job/merge/build?token=run")
+    os.system("curl --user 'admin:Omkar@jio.com1' http://192.168.43.60:8080/job/Merge/build?token=run")
 else:
-    os.system("curl --user 'admin:Omkar@jio.com1' http://192.168.43.60:8080/job/notification/build?token=mail")
+    os.system("curl --user 'admin:Omkar@jio.com1' http://192.168.43.60:8080/job/Notification/build?token=mail")
