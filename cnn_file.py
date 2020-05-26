@@ -112,4 +112,4 @@ import os
 if final_accuracy < 0.92:
     os.system("curl --user 'admin:Omkar@jio.com1' http://192.168.43.60:8080/job/execution/build?token=run")
 else:
-    print("Finally accuracy reached :=",accuracy)
+    os.system("curl --user 'admin:Omkar@jio.com1' http://192.168.43.60:8080/job/notification/build?token=mail")
