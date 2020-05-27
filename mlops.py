@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Using MobileNet for our Monkey Classifer
+# # Using MobileNet for our Dog Classifer
 # 
 # ### Loading the MobileNet Model
 
@@ -58,7 +58,7 @@ model = Model(inputs = MobileNet.input, outputs = FC_Head)
 print(model.summary())
 
 
-# ### Loading our Monkey Breed Dataset
+# ### Loading our Dogs Dataset
 
 from keras.preprocessing.image import ImageDataGenerator
 
@@ -85,7 +85,7 @@ from keras.optimizers import RMSprop
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 
                      
-checkpoint = ModelCheckpoint("monkey_breed_mobileNet.h5",monitor="val_loss",mode="min",save_best_only = True,verbose=1)
+checkpoint = ModelCheckpoint("dog_colour.h5",monitor="val_loss",mode="min",save_best_only = True,verbose=1)
 
 earlystop = EarlyStopping(monitor = 'val_loss',min_delta = 0,patience = 3,verbose = 1,restore_best_weights = True)
 
@@ -100,7 +100,7 @@ nb_train_samples = 20
 nb_validation_samples = 4
 
 # We only train 5 EPOCHS 
-epochs = 5
+epochs = 4
 batch_size = 16
 
 history = model.fit_generator(train_generator,steps_per_epoch = nb_train_samples // batch_size,epochs = epochs,callbacks = callbacks,validation_data= validation_generator,validation_steps = nb_validation_samples // batch_size)
