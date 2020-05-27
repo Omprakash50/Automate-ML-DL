@@ -100,7 +100,7 @@ nb_train_samples = 20
 nb_validation_samples = 4
 
 # We only train 5 EPOCHS 
-epochs = 2
+epochs = 5
 batch_size = 16
 
 history = model.fit_generator(train_generator,steps_per_epoch = nb_train_samples // batch_size,epochs = epochs,callbacks = callbacks,validation_data= validation_generator,validation_steps = nb_validation_samples // batch_size)
@@ -110,7 +110,7 @@ accuracy=history.history["val_accuracy"][-1]
 
 import os
 if accuracy < 0.92:
-    os.system("curl --user 'admin:Omkar@jio.com1' http://192.168.43.60:8080/job/Merge/build?token=run")
+    os.system("curl --user 'jenkins_username:jenkins_password' http://192.168.43.60:8080/job/Merge/build?token=run")
 else:
-    os.system("curl --user 'admin:Omkar@jio.com1' http://192.168.43.60:8080/job/Notification/build?token=mail")
+    os.system("curl --user 'jenkins_username:jenkins_password' http://192.168.43.60:8080/job/Notification/build?token=mail")
 
